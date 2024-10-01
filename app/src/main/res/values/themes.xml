@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.HymnBook" parent="Theme.Material3.DayNight.NoActionBar">
+        <!--        <item name="colorPrimary">@color/colorPrimaryLight</item>-->
+        <!--        <item name="colorPrimaryDark">@color/colorPrimaryDarkLight</item>-->
+        <!--        <item name="colorAccent">@color/colorAccentLight</item>-->
+    </style>
+
+    <style name="Theme.HymnBook" parent="Base.Theme.HymnBook" />
+
+    <!-- Base application theme for Dark Mode -->
+    <style name="AppTheme.Dark" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkDark</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
+        <!-- Other attributes for dark mode -->
+    </style>
+
+    <style name="ThemeOverlay.HymnBook.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
+
+</resources>

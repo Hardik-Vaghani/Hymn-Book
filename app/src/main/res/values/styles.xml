@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="ShapeAppearanceOverlay.ShapeAbleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- Adjust the corner radius as per your requirement -->
+    </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:editTextColor" tools:ignore="NewApi">@color/search_cursor_color</item>
+        <item name="backgroundColor">@color/colorAccentDark</item>
+        <item name="android:textFilterEnabled">true</item>
+        <item name="android:textCursorDrawable">@drawable/custom_cursor_drawable</item>
+    </style>
+
+    <style name="Widget.Theme.HymnBook.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+</resources>

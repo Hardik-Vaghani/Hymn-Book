@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Hymn Book</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="ui_settings_header">IU settings</string>
+    <string name="general_header">General</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="system_ui_title">System ui</string>
+    <string name="index_item_language_title">Language of Index item</string>
+
+    <!-- Sync Preferences -->
+    <string name="general_settings_title">General settings periodically</string>
+
+    <string name="drawer_attachment_title">Drawer attachments</string>
+    <string name="drawer_attachment_summary_on">After selecting any item, the drawer will close automatically.</string>
+    <string name="drawer_attachment_summary_off">Even after selecting an item, that drawer will remain open.</string>
+
+    <string name="history_tracker_title">History Tracker</string>
+    <string name="history_tracker_summary_on">Remember history (recent index item)</string>
+    <string name="history_tracker_summary_off">Normal tracker (latest index item)</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>

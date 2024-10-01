@@ -1,0 +1,55 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/ui_settings_header">
+
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:key="general_settings"
+            app:title="@string/general_settings_title" />
+
+        <ListPreference
+            app:defaultValue="default_screen"
+            app:dependency="general_settings"
+            app:entries="@array/system_ui_entries"
+            app:entryValues="@array/system_ui_values"
+            app:key="system_ui"
+            app:title="@string/system_ui_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="hindi"
+            app:dependency="general_settings"
+            app:entries="@array/index_item_language_entries"
+            app:entryValues="@array/index_item_language_values"
+            app:key="index_item_language"
+            app:title="@string/index_item_language_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:dependency="general_settings"
+            app:key="drawer_attachment"
+            app:summaryOff="@string/drawer_attachment_summary_off"
+            app:summaryOn="@string/drawer_attachment_summary_on"
+            app:title="@string/drawer_attachment_title" />
+
+        <SwitchPreferenceCompat
+            app:dependency="general_settings"
+            app:key="history_tracker"
+            app:summaryOff="@string/history_tracker_summary_off"
+            app:summaryOn="@string/history_tracker_summary_on"
+            app:title="@string/history_tracker_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,25 @@
+<resources>
+    <!-- System UI Preference -->
+    <string-array name="system_ui_entries">
+        <item>Default screen</item>
+        <item>Fullscreen (+ Status bar)</item>
+        <item>Fullscreen</item>
+    </string-array>
+
+    <string-array name="system_ui_values">
+        <item>default_screen</item>
+        <item>fullscreen_Status_bar</item>
+        <item>fullscreen</item>
+    </string-array>
+
+    <!-- Index =item language UI Preference -->
+    <string-array name="index_item_language_entries">
+        <item>English</item>
+        <item>हिन्दी</item>
+    </string-array>
+
+    <string-array name="index_item_language_values">
+        <item>english</item>
+        <item>hindi</item>
+    </string-array>
+</resources>

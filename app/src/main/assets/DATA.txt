@@ -1,0 +1,91 @@
+lifecycleScope.launch {
+            // Observe the state flow and update UI accordingly
+            hymnBookViewModel.hymnbookIndex.collect { resource ->
+                when (resource) {
+                    is Resource.Success -> {
+                        // Handle success case, update UI with data
+                        val hymnBookIndexList = resource.data
+                        Log.d(TAG, "onCreate: Success:  $hymnBookIndexList")
+                        hymnBookViewModel.getBookItems(hymnBookIndex = hymnBookIndexList[0])
+                        // Update your UI here
+                        getBookItemData()
+                    }
+
+                    is Resource.Error -> {
+                        // Handle error case, show error message
+                        val errorMessage = resource.message
+                        Toast.makeText(this@MainActivity,errorMessage,Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "onCreate: Error: $errorMessage")
+                        // Show error message to user
+                    }
+
+                    is Resource.Loading -> {
+                        // Handle loading state, show progress bar or loading indicator
+                        Log.d(TAG, "onCreate: Loading: ")
+                    }
+                }
+            }
+        }
+
+
+          private suspend fun getBookItemData() {
+                hymnBookViewModel.bookItem.collect { resources ->
+                    when (resources) {
+                        is Resource.Success -> {
+                            // Handle success case, update UI with data
+                            val bookItem = resources.data
+                            Log.d(TAG, "getBookItemData: Success: \n$bookItem")
+                            findViewById<TextView>(R.id.textView).text = bookItem.data
+                        }
+                        is Resource.Error -> {
+                            // Handle error case, show error message
+                            val errorMessage = resources.message
+                            Log.d(TAG, "getBookItemData: Error: $errorMessage")
+                        }
+                        is Resource.Loading -> {
+                            // Handle loading state, show progress bar or loading indicator
+                            Log.d(TAG, "getBookItemData: Loading...")
+                        }
+                    }
+                }
+            }
+
+
+
+            <com.hardik.hymnbook.extra_class.ZoomableMovableLayout
+                        android:id="@+id/zoomableMovableLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#F32F2F"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="20dp"
+                            android:text="Main Content"
+                            android:textSize="16sp"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </com.hardik.hymnbook.extra_class.ZoomableMovableLayout>
+
+                     <TextView
+                                android:id="@+id/tv_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Title"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+note : text functionality, drawer closing functionality options, theme, default dashboard functionality(animation or first item load default)

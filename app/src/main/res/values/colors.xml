@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="search_cursor_color">#B00020</color>
+    <color name="color_t_1">#00000000</color>
+    <color name="color_t_2">#55B00020</color>
+    <color name="search_text_color">#FFFFFF</color>
+    <color name="search_hint_color">#808080</color>
+
+    <color name="colorPrimaryLight">#FFCCBC</color>
+    <color name="colorPrimaryDarkLight">#FFECB3</color>
+    <color name="colorAccentLight">#DCEDC8</color>
+
+    <color name="colorPrimaryDark">#FFAB91</color>
+    <color name="colorPrimaryDarkDark">#FFE082</color>
+    <color name="colorAccentDark">#C5E1A5</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="app_name_color">@color/colorAccentDark</color>
+</resources>
