@@ -30,6 +30,7 @@ import com.hardik.hymnbook.R
 import com.hardik.hymnbook.adapter.IndexAdapter
 import com.hardik.hymnbook.common.Constants.BASE_TAG
 import com.hardik.hymnbook.common.FragmentSessionUtils
+import com.hardik.hymnbook.common.Prefs
 import com.hardik.hymnbook.common.Resource
 import com.hardik.hymnbook.common.UIOrientationUtils
 import com.hardik.hymnbook.common.fadeIn
@@ -269,7 +270,12 @@ class MainActivity : AppCompatActivity() {
 
                         // load the default Fragment with data
                         if (savedInstanceState == null) {
-                            switchToHymnBookItemFragment(file = hymnBookIndexList[hymnBookIndexList.size-1].file)//load list item from the index list
+                            //region get last open file
+                            //endregion
+                            val savedFile = Prefs.getString("hymnBookFileName", hymnBookIndexList[hymnBookIndexList.size-1].file)
+
+                            savedFile?.let { switchToHymnBookItemFragment(file = it) }//load list item from the index list
+
                         } else {
                             Log.e(TAG, "onCreate: " + savedInstanceState)
                         }
@@ -300,6 +306,11 @@ class MainActivity : AppCompatActivity() {
                 drawerLayout.closeDrawer(GravityCompat.START) // Assuming you want to close to the start (left) side
             }
             isHistoryTrackerEnabled = prefs.getBoolean("history_tracker", false)// from the settings
+
+            //region Store the string in SharedPreferences using your custom Prefs object
+            //endregion
+            Prefs.putString("hymnBookFileName", it.file)
+
             fragmentSessionUtils.switchFragment(
                 supportFragmentManager,
                 HymnBookItemFragment.newInstance(param1FileName = it.file), //  HymnBookItemFragment(),
@@ -416,6 +427,7 @@ class MainActivity : AppCompatActivity() {
     // default loading data from the file
     private fun switchToHymnBookItemFragment(file: String) {
         Log.d(TAG, "switchToHymnBookItemFragment: ")
+
         val currentFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
         if (currentFragment !is HymnBookItemFragment) { fragmentSessionUtils.switchFragment(
             supportFragmentManager,

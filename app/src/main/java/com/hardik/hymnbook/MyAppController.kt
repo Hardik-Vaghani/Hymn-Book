@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import com.hardik.hymnbook.common.Constants.BASE_TAG
 import com.hardik.hymnbook.common.FragmentUtils
+import com.hardik.hymnbook.common.Prefs
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
@@ -13,5 +14,9 @@ class MyAppController : Application() {
         super.onCreate()
         Log.d(TAG, "onCreate: ")
         FragmentUtils.getInstance()
+
+        Prefs.Builder()
+            .setContext(this)
+            .build()
     }
 }
