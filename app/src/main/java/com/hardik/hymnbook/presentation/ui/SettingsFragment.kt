@@ -3,6 +3,8 @@ package com.hardik.hymnbook.presentation.ui
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
+import android.view.View
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
@@ -90,5 +92,17 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
             true // Return true to persist the change
         }
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Get the fullscreenBackgroundColor from the theme
+        val typedValue = TypedValue()
+        requireContext().theme.resolveAttribute(R.attr.fullscreenBackgroundColor, typedValue, true)
+
+        // Set the background color to the view
+        view.setBackgroundColor(typedValue.data)
+        // Directly set a hardcoded color for testing
+//        view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black_overlay)) // Replace with your test color
     }
 }

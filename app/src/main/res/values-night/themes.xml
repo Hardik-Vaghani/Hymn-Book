@@ -1,9 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.HymnBook" parent="Theme.Material3.DayNight.NoActionBar">
-        <!--        <item name="colorPrimary">@color/colorPrimaryDark</item>-->
-        <!--        <item name="colorPrimaryDark">@color/colorPrimaryDarkDark</item>-->
-        <!--        <item name="colorAccent">@color/colorAccentDark</item>-->
+        <item name="colorPrimary">@color/white</item><!--toggle button-->
+        <item name="colorPrimaryContainer">@color/warm_off_white</item><!--toggle button background-->
+        <item name="colorPrimaryDark">@color/transparent_grey_black</item><!--appbar-->
+        <item name="colorAccent">@color/dahlia</item><!--header text-->
+        <item name="android:textColor">@color/white</item>
+        <item name="fullscreenBackgroundColor">@color/black_overlay</item>
+        <item name="fullscreenTextColor">@color/white</item>
     </style>
 
     <!-- Base application theme for Light Mode -->

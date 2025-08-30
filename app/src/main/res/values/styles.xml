@@ -19,4 +19,15 @@
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 
+
+    <style name="CustomSwitchPreference.On" parent="Preference.SwitchPreference">
+        <item name="android:background">?attr/fullscreenBackgroundColor</item> <!-- Adjust this as needed -->
+        <item name="android:textColor">?attr/fullscreenTextColor</item> <!-- Color when on -->
+    </style>
+
+    <style name="CustomSwitchPreference.Off" parent="Preference.SwitchPreference">
+        <item name="android:background">?attr/fullscreenBackgroundColor</item> <!-- Adjust this as needed -->
+        <item name="android:textColor">?attr/fullscreenTextColor</item> <!-- Color when off -->
+    </style>
+
 </resources>

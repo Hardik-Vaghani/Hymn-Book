@@ -80,13 +80,18 @@ class HymnBookItemFragment() : Fragment() {
 
         val scaleGestureDetector = ScaleGestureDetector(requireContext(), ScaleListener())
 
-        // Set up touch listener for ScrollView
-        textView.setOnTouchListener { _, event ->
-            // Handle touch events for scaling
-            scaleGestureDetector.onTouchEvent(event)
-
-            true
+        // Attach listener to the ScrollView (not just TextView)
+        scrollView.setOnTouchListener { _, event ->
+            if (event.pointerCount > 1) {
+                // Multi-touch → zoom
+                scaleGestureDetector.onTouchEvent(event)
+                true // consume event (don’t scroll)
+            } else {
+                // Single finger → let ScrollView handle it
+                false
+            }
         }
+
 //        hymnBookItemViewModel.getBookItems("श्री गीत गोविन्द.json")
         param1FileName?.also {
             hymnBookItemViewModel.getBookItems(it)

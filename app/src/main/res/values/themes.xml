@@ -1,12 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.HymnBook" parent="Theme.Material3.DayNight.NoActionBar">
-        <!--        <item name="colorPrimary">@color/colorPrimaryLight</item>-->
-        <!--        <item name="colorPrimaryDark">@color/colorPrimaryDarkLight</item>-->
-        <!--        <item name="colorAccent">@color/colorAccentLight</item>-->
+        <item name="colorPrimary">@color/warm_light_blue_1</item><!--toggle button-->
+        <item name="colorPrimaryContainer">@color/warm_light_blue_2</item><!--toggle button background-->
+        <item name="colorPrimaryDark">@color/transparent_grey_black</item><!--appbar-->
+        <item name="colorAccent">@color/black</item><!--header text-->
+        <item name="android:textColor">@color/black</item>
+        <item name="fullscreenBackgroundColor">@color/white</item>
+        <item name="fullscreenTextColor">@color/black</item>
     </style>
 
-    <style name="Theme.HymnBook" parent="Base.Theme.HymnBook" />
+    <style name="Theme.HymnBook" parent="Base.Theme.HymnBook"/>
 
     <!-- Base application theme for Dark Mode -->
     <style name="AppTheme.Dark" parent="Theme.Material3.DayNight.NoActionBar">
