@@ -1,5 +1,9 @@
 package com.hardik.hymnbook.presentation.ui
 
+import android.animation.Animator
+import android.animation.AnimatorInflater
+import android.animation.ArgbEvaluator
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
@@ -8,8 +12,10 @@ import android.view.LayoutInflater
 import android.view.ScaleGestureDetector
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.core.animation.addListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -21,6 +27,9 @@ import com.hardik.hymnbook.common.fadeOut
 import com.hardik.hymnbook.databinding.FragmentHymnBookItemBinding
 import com.hardik.hymnbook.presentation.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 private const val ARG_PARAM1 = "param1"
@@ -46,6 +55,8 @@ class HymnBookItemFragment() : Fragment() {
     private lateinit var scrollView: ScrollView
 
     private lateinit var progressBar: View
+
+    private var forward = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,9 +116,18 @@ class HymnBookItemFragment() : Fragment() {
                     is Resource.Success -> {
                         // Handle success case, update UI with data
                         val bookItem = resources.data
-                        Log.d(TAG, "getBookItemData: Success: \n$bookItem")
-                        textView.text =
-                            "\n\n${bookItem.data} \n\n\n"
+
+                        flipPage(textView, bookItem.data)
+//                        val typingMode = mainActivity.prefs.getBoolean("typing_mode", true) // default = true
+//
+//                        when(typingMode) {
+//                            true -> { animateTypingCoroutine(textView, "\n\n${bookItem.data} \n\n\n") }
+//                            else -> {
+//                                textView.text = "\n\n${bookItem.data} \n\n\n"
+//                                //animatePageFlip(textView, forward)
+//                            }
+//                        }
+
                         progressBar.fadeOut()
                     }
 
@@ -127,6 +147,94 @@ class HymnBookItemFragment() : Fragment() {
                 }
             }
         }
+    }
+
+    private fun animateTypingCoroutine(textView: TextView, text: String) {
+        textView.text = ""
+        CoroutineScope(Dispatchers.Main).launch {
+            //animatePageFlip(textView, forward)
+            val typingSpeedDelay = mainActivity.prefs.getString("typing_speed", "2")?.toLong() ?: 8L// default = 4
+
+            when (typingSpeedDelay) {
+                 2L-> {
+
+
+                    var i = 1
+                    while (i <= text.length) {
+                        val endIndex = minOf(i, text.length)
+                        textView.text = text.substring(0, endIndex)
+                        delay(typingSpeedDelay)
+                        i += 20
+                    }
+                    // Ensure full text is displayed at the end
+                    if (textView.text != text) {
+                        textView.text = text
+                    }
+
+                }
+                else -> {
+
+                    for (i in 1..text.length) {
+                        textView.text = text.substring(0, i)
+                        delay(typingSpeedDelay)
+                    }
+
+                }
+            }
+
+
+        }
+    }
+
+    private fun flipPage(page: TextView, newText: String) {
+        val scale = resources.displayMetrics.density
+        page.cameraDistance = 8000 * scale
+
+        val flipOut = AnimatorInflater.loadAnimator(requireContext(), R.animator.flip_out) as Animator
+        val flipIn = AnimatorInflater.loadAnimator(requireContext(), R.animator.flip_in) as Animator
+
+        flipOut.setTarget(page)
+        flipIn.setTarget(page)
+
+        flipIn.addListener(onEnd = {
+            // Update content in the middle of flip
+            //page.text = "\n\n$newText\n\n"
+
+            val typingMode = mainActivity.prefs.getBoolean("typing_mode", true) // default = true
+
+            when(typingMode) {
+                true -> { animateTypingCoroutine(textView, "\n\n${newText} \n\n\n") }
+                else -> {
+                    textView.text = "\n\n${newText} \n\n\n"
+                    //animatePageFlip(textView, forward)
+                }
+            }
+            flipOut.start()
+        })
+        flipIn.start()
+
+        forward = !forward
+    }
+    private fun animatePageFlip(page: View, forward: Boolean) {
+        val startColor = if (forward) 0xFFFFFFFF.toInt() else 0xFFE0E0E0.toInt()
+        val endColor = if (forward) 0xFFE0E0E0.toInt() else 0xFFFFFFFF.toInt()
+
+        ValueAnimator.ofObject(ArgbEvaluator(), startColor, endColor).apply {
+            duration = 500
+            addUpdateListener { animator ->
+                page.setBackgroundColor(animator.animatedValue as Int)
+            }
+            start()
+        }
+
+        page.animate()
+            .rotationYBy(if (forward) 180f else -180f)
+            .setDuration(500)
+            .setInterpolator(AccelerateDecelerateInterpolator())
+            .withEndAction {
+                page.rotationY = 0f
+            }
+            .start()
     }
 
     companion object {

@@ -2,10 +2,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="search_cursor_color">#B00020</color>
+    <color name="main_color">#BD4C44</color>
+    <color name="main1_color">#D5EF8A84</color>
     <color name="color_t_1">#00000000</color>
     <color name="color_t_2">#55B00020</color>
     <color name="search_text_color">#FFFFFF</color>
+    <color name="text_color">#090808</color>
     <color name="search_hint_color">#808080</color>
     <color name="transparent_grey_black">#80000000</color>
     <color name="dahlia">#C72C48</color>
@@ -33,3 +35,6 @@
     <color name="black_overlay">#66000000</color>
     <color name="app_name_color">@color/colorAccentDark</color>
 </resources>
+<!--android:textColor="@android:color/system_tertiary_light"
+    android:textColor="@color/design_default_color_error"
+    android:background="?attr/fullscreenBackgroundColor" for example-->

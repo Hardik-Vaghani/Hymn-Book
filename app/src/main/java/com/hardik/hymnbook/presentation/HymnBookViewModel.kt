@@ -41,7 +41,7 @@ open class HymnBookViewModel @Inject constructor(
             Log.d(TAG, "getHymnBookIndexList: ")
             when (resource) {
                 is Resource.Success -> {
-                    delay(1000)
+                    delay(0)
                     // Update the list with the received data and notify observers
                     _hymnbookIndex.value = resource
                 }
@@ -66,7 +66,7 @@ open class HymnBookViewModel @Inject constructor(
             Log.d(TAG, "getBookItems: $fileName")
             when (resource) {
                 is Resource.Success -> {
-                    delay(1000)
+                    delay(350)
                     // Update the list with the received data and notify observers
                     _bookItem.value = Resource.Success(data = resource.data.toBookItem())
                 }

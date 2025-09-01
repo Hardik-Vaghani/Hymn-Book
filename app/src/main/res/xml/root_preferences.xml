@@ -50,6 +50,23 @@
             app:summaryOn="@string/history_tracker_summary_on"
             app:title="@string/history_tracker_title" />
 
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            app:dependency="general_settings"
+            app:key="typing_mode"
+            app:summaryOff="@string/typing_mode_summary_off"
+            app:summaryOn="@string/typing_mode_summary_on"
+            app:title="@string/typing_mode_title" />
+
+        <ListPreference
+            app:defaultValue="2"
+            app:dependency="typing_mode"
+            app:key="typing_speed"
+            app:entries="@array/typing_speed_entries"
+            app:entryValues="@array/typing_speed_values"
+            app:title="@string/typing_speed_title"
+            app:useSimpleSummaryProvider="true" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -110,4 +110,11 @@ class FragmentSessionUtils private constructor() {
         }
     }
 
+    /**
+     * Get currently active fragment
+     */
+    fun getActiveFragment(fragmentManager: FragmentManager): Fragment? {
+        return fragmentManager.findFragmentById(R.id.nav_host_fragment)
+    }
+
 }

@@ -6,6 +6,6 @@
     <corners android:radius="0dp" /> <!-- Corner radius -->
     <stroke
         android:width="0.0dp"
-        android:color="#657985" /> <!-- Stroke color -->
+        android:color="@color/main_color" /> <!-- Stroke color -->
     <!-- You can add other attributes like stroke, gradient, etc. here -->
 </shape>

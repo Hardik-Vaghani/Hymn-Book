@@ -8,7 +8,7 @@
             <gradient
                 android:angle="0"
                 android:type="linear"
-                android:centerColor="#20000000"
+                android:centerColor="#10000000"
                 android:endColor="#00000000"
                 android:startColor="#20000000" />
             <!-- Rounded corners and padding -->
@@ -26,9 +26,9 @@
             <gradient
                 android:type="linear"
                 android:angle="0"
-                android:centerColor="#F5EEFF"
-                android:endColor="#00000000"
-                android:startColor="#CAC1EA"/>
+                android:centerColor="@color/white"
+                android:endColor="@color/white"
+                android:startColor="@color/white"/>
         </shape>
     </item>
 
@@ -42,8 +42,8 @@
                 android:type="linear"
                 android:angle="0"
                 android:centerColor="@color/white"
-                android:endColor="#00000000"
-                android:startColor="#E0F3FF"/>
+                android:endColor="@color/white"
+                android:startColor="@color/main1_color"/>
         </shape>
     </item>
 </layer-list>

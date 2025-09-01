@@ -2,7 +2,6 @@ package com.hardik.hymnbook.presentation.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import androidx.preference.ListPreference
@@ -17,13 +16,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
-        // Find the ListPreferences
+        // --- System UI --- Find the ListPreferences
         val listPreference = findPreference<ListPreference>("system_ui")
 
         // Set listener for preference changes
         listPreference?.setOnPreferenceChangeListener { preference, newValue ->
             val selectedValue = newValue as String
-            Log.d(TAG, "List preference changed to: $selectedValue")
 
             // Save the preference value to SharedPreferences
             val sharedPreferences = context?.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
@@ -37,13 +35,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
             true // Return true to persist the change
         }
 
-        // Find the ListPreferences
+        // --- Index language --- Find the ListPreferences
         val listPreferenceLanguage = findPreference<ListPreference>("index_item_language")
 
         // Set listener for preference changes
         listPreferenceLanguage?.setOnPreferenceChangeListener { preference, newValue ->
             val selectedValue = newValue as String
-            Log.d(TAG, "List preference language changed to: $selectedValue")
 
             // Save the preference value to SharedPreferences
             val sharedPreferences = context?.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
@@ -58,13 +55,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
 
 
-        // Find the SwitchPreferenceCompat
+        // --- Drawer attachment --- Find the SwitchPreferenceCompat
         val drawerAttachmentSwitch = findPreference<SwitchPreferenceCompat>("drawer_attachment")
 
         drawerAttachmentSwitch?.setOnPreferenceChangeListener{
             preference, newValue ->
             val isChecked = newValue as Boolean
-            Log.d(TAG, "Drawer attachment preference changed to: ${isChecked}")
 
             // Save the preference value to SharedPreferences
             val sharedPreferences = context?.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
@@ -76,13 +72,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
 
 
-        // Find the SwitchPreferenceCompat
+        // --- History tracker --- Find the SwitchPreferenceCompat
         val historyTrackerSwitch = findPreference<SwitchPreferenceCompat>("history_tracker")
 
         // Set listener for preference changes
         historyTrackerSwitch?.setOnPreferenceChangeListener { preference, newValue ->
             val isChecked = newValue as Boolean
-            Log.d(TAG, "History tracker preference changed to: $isChecked")
 
             // Save the preference value to SharedPreferences
             val sharedPreferences = context?.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
@@ -91,6 +86,36 @@ class SettingsFragment : PreferenceFragmentCompat() {
             editor?.apply()
 
             true // Return true to persist the change
+        }
+
+        // --- Typing_mode switch ---
+        val typingModeSwitch = findPreference<SwitchPreferenceCompat>("typing_mode")
+
+        typingModeSwitch?.setOnPreferenceChangeListener { preference, newValue ->
+            val isChecked = newValue as Boolean
+
+            // Save manually if you want custom SharedPreferences
+            val sharedPreferences = context?.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+            sharedPreferences?.edit()
+                ?.putBoolean("typing_mode", isChecked)
+                ?.apply()
+
+            true // return true to let Preference framework also persist it
+        }
+
+        // --- Typing speed preference ---
+        val typingSpeedPreference = findPreference<ListPreference>("typing_speed")
+
+        typingSpeedPreference?.setOnPreferenceChangeListener { preference, newValue ->
+            val selectedValue = newValue as String
+
+            // Save manually if you want to keep using custom SharedPreferences
+            val sharedPreferences = context?.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+            sharedPreferences?.edit()
+                ?.putString("typing_speed", selectedValue)
+                ?.apply()
+
+            true // Return true to let Preference framework also persist it
         }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -104,5 +129,15 @@ class SettingsFragment : PreferenceFragmentCompat() {
         view.setBackgroundColor(typedValue.data)
         // Directly set a hardcoded color for testing
 //        view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black_overlay)) // Replace with your test color
+
+        // Background for whole fragment
+        view.setBackgroundResource(R.drawable.background_open)
+        // or: view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.my_color))
+
+        // Padding for preference list (RecyclerView)
+        val recyclerView = listView
+        val padding = (16 * resources.displayMetrics.density).toInt()
+        recyclerView.setPadding(padding, padding, padding, padding)
+        recyclerView.clipToPadding = false
     }
 }

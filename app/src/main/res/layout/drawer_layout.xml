@@ -15,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_closed"
-        android:elevation="1dp"
-        android:orientation="vertical">
+        android:elevation="1dp">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
@@ -73,7 +72,7 @@
             android:gravity="start"
             android:paddingHorizontal="@dimen/padding_14"
             android:text="Index"
-            android:textColor="@android:color/system_tertiary_light"
+            android:textColor="@color/main_color"
             android:textSize="@dimen/default_medium_text_size"
             android:textStyle="bold" />
 

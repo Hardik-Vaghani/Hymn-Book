@@ -1,0 +1,132 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Messages Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/messages_header"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+        <!-- Signature EditText -->
+        <EditText
+            android:id="@+id/et_signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/signature_title"
+            android:inputType="text" />
+
+        <!-- UI Settings Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ui_settings_header"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <!-- General Settings Switch -->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_general_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/general_settings_title" />
+
+        <!-- System UI Spinner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/system_ui_title" />
+
+            <Spinner
+                android:id="@+id/spinner_system_ui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/system_ui_entries" />
+        </LinearLayout>
+
+        <!-- Index Language Spinner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/index_item_language_title" />
+
+            <Spinner
+                android:id="@+id/spinner_index_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/index_item_language_entries" />
+        </LinearLayout>
+
+        <!-- Drawer Attachment Switch -->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_drawer_attachment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_attachment_title" />
+
+        <!-- History Tracker Switch -->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_history_tracker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/history_tracker_title" />
+
+        <!-- Typing Mode Switch -->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_typing_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/typing_mode_title" />
+
+        <!-- Typing Speed Spinner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/typing_speed_title" />
+
+            <Spinner
+                android:id="@+id/spinner_typing_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/typing_speed_entries" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

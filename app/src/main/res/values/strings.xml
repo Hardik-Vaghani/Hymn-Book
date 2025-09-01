@@ -13,6 +13,7 @@
     <string name="signature_title">Your signature</string>
     <string name="system_ui_title">System ui</string>
     <string name="index_item_language_title">Language of Index item</string>
+    <string name="typing_speed_title">Tying speed</string>
 
     <!-- Sync Preferences -->
     <string name="general_settings_title">General settings periodically</string>
@@ -21,9 +22,15 @@
     <string name="drawer_attachment_summary_on">After selecting any item, the drawer will close automatically.</string>
     <string name="drawer_attachment_summary_off">Even after selecting an item, that drawer will remain open.</string>
 
-    <string name="history_tracker_title">History Tracker</string>
+    <string name="history_tracker_title">History tracker</string>
     <string name="history_tracker_summary_on">Remember history (recent index item)</string>
     <string name="history_tracker_summary_off">Normal tracker (latest index item)</string>
+
+    <string name="typing_mode_title">Tying mode</string>
+    <string name="typing_mode_summary_off">Show text instantly</string>
+    <string name="typing_mode_summary_on">Show text with typing effect</string>
+
+
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

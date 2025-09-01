@@ -22,4 +22,13 @@
         <item>english</item>
         <item>hindi</item>
     </string-array>
+
+    <string-array name="typing_speed_entries">
+        <item>Smooth</item>
+        <item>Fast</item>
+    </string-array>
+    <string-array name="typing_speed_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

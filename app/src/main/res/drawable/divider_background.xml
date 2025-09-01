@@ -7,8 +7,15 @@
 
     <gradient
         android:angle="0"
-        android:centerColor="#A9B3B3"
+        android:centerColor="@color/main1_color"
         android:endColor="#00000000"
-        android:startColor="#3A3838"
-        tools:ignore="NewApi" /><!-- 0,45,90,135,180,225,270,315,360 -->
+        android:startColor="@color/main_color"
+        tools:ignore="NewApi" />
+<!--    <gradient-->
+<!--        android:angle="0"-->
+<!--        android:centerColor="#A9B3B3"-->
+<!--        android:endColor="#00000000"-->
+<!--        android:startColor="#3A3838"-->
+<!--        tools:ignore="NewApi" />-->
+    <!-- 0,45,90,135,180,225,270,315,360 -->
 </shape>
