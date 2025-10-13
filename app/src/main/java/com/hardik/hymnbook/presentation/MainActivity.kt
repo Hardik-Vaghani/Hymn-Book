@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         var isHistoryTrackerEnabled = prefs.getBoolean("history_tracker", false)
         Log.e(TAG, "onCreate: isSync: $isHistoryTrackerEnabled")
 
-        val screenUi = prefs.getString("system_ui", "default_screen")
+        val screenUi = prefs.getString("system_ui", "fullscreen")
         val systemUiValues: Array<String> = resources.getStringArray(R.array.system_ui_values)
 
         UI_ORIENTATION_UTILS?.setOrientationUnlock(this@MainActivity) // Unlock orientation
