@@ -13,6 +13,10 @@ Use this section to quickly identify which branch contains which feature / exper
 | Branch Name  | Description / Feature | Related Files / Notes |
 |--------------|-----------------------|-----------------------|
 | `branch-001` | Initial **Settings Screen** with `root_preferences.xml` | `res/xml/root_preferences.xml` |
+| `branch-000` | Implemented **Navigation Drawer** | `MainActivity.kt`, `drawer_menu.xml` |
+| `branch-000` | Added **Room Database** for storing hymns | `HymnDao.kt`, `AppDatabase.kt` |
+| `branch-000` | UI overhaul with **Material 3 theme** | `themes.xml`, `colors.xml` |
+| `branch-000` | Added **Search feature** for hymns | `SearchFragment.kt` |
 
 ---
 

@@ -30,4 +30,17 @@
         <item name="android:textColor">?attr/fullscreenTextColor</item> <!-- Color when off -->
     </style>
 
+
+    <style name="SettingsText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+    <style name="SettingsHeaderText" parent="@style/SettingsText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
 </resources>

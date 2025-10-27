@@ -6,7 +6,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
-    <string name="ui_settings_header">IU settings</string>
+    <string name="ui_settings_header">Settings</string>
     <string name="general_header">General</string>
 
     <!-- Messages Preferences -->

@@ -36,6 +36,7 @@ import com.hardik.hymnbook.common.UIOrientationUtils
 import com.hardik.hymnbook.common.fadeIn
 import com.hardik.hymnbook.common.fadeOut
 import com.hardik.hymnbook.databinding.ActivityMainBinding
+import com.hardik.hymnbook.presentation.ui.ControlFragment
 import com.hardik.hymnbook.presentation.ui.HymnBookItemFragment
 import com.hardik.hymnbook.presentation.ui.SettingsFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -317,7 +318,7 @@ class MainActivity : AppCompatActivity() {
                 isHistoryTrackerEnabled,// if you want to track history fragments than set 'ture'
             )
             supportFragmentManager.popBackStack(
-                SettingsFragment::class.java.simpleName,
+                ControlFragment::class.java.simpleName,//SettingsFragment::class.java.simpleName,
                 FragmentManager.POP_BACK_STACK_INCLUSIVE
             )
         }
@@ -328,7 +329,7 @@ class MainActivity : AppCompatActivity() {
             }
             fragmentSessionUtils.switchFragment(
                 supportFragmentManager,
-                SettingsFragment(),
+                ControlFragment(),//SettingsFragment(),
                 true,// if you want to track history fragments than set 'ture'
             )
         }
